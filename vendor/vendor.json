@@ -1,7 +1,0 @@
-{
-  "rootPath": "myapp",
-  "heroku": {
-      "install" : ["./..."],
-      "goVersion": "go1.14.6"
-  }
-}
