@@ -4,6 +4,7 @@ import (
     "fmt"
     "net/http"
     "net/http/httputil"
+    "os"
 )
 
 func hello(w http.ResponseWriter, req *http.Request) {
@@ -26,9 +27,12 @@ func headers(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-
-    http.HandleFunc("/hello", hello)
+    port, ok := os.LookupEnv("PORT")
+	if !ok {
+		port = "8080"
+	}
+    http.HandleFunc("/", hello)
     http.HandleFunc("/headers", headers)
 
-    http.ListenAndServe(":8090", nil)
+    http.ListenAndServe(":"+port, nil)
 }
