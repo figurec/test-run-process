@@ -1,7 +1,7 @@
 
 const { exec } = require('child_process');
 //'ls -lh' list files in directory
-exec('./opera/bin/opera-proxy -country EU', (error, stdout, stderr) => {
+exec('./bin/opera-proxy -country EU', (error, stdout, stderr) => {
   if (error) {
     console.error(`error: ${error.message}`);
     return;
